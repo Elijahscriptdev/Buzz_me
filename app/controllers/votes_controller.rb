@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-    class VotesController < ApplicationController
+
   def create
     @vote = current_user.votes.new(article_id: params[:article_id])
 
@@ -19,6 +19,5 @@ class VotesController < ApplicationController
       redirect_to request.referer, alert: 'You cannot unvoted article that you did not like before.'
     end
   end
-end
 
 end
