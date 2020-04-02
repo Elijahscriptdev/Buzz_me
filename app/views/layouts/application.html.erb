@@ -11,22 +11,50 @@
 </head>
 
 <body>
-    <ul class="sidenav" id="mobile-demo">
-        <% if logged_in? %>
-        <li>
-            <%= link_to  "Logout", logout_path, class: "font", method: :delete %>
-        </li>
-        <% else %>
-        <li>
-            <%= link_to  "Login", root_path, class: "font" %>
-        </li>
-        <li>
-            <%= link_to  "Resgister", signup_path, class: "font" %>
-        </li>
-        <% end %>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img class="logo" src="https://res.cloudinary.com/elijjaaahhhh/image/upload/v1584496845/download_2_dnk6do.png"></a>
 
-    </ul>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                    <% if logged_in? %>
+                    <li class="nav-item active">
+                        <%= link_to  "Home", root_path, class: "nav-link" %>
+                    </li>
+                    <%# @categories.each do |category| %>
+                    <li class="nav-item">
+
+                        <%# link_to  category.name, articles_path(:cate => category.id), class: "nav-link" %>
+
+                    </li>
+                    <%# end %>
+                    <% end %>
+                </ul>
+
+                <ul class="navbar-nav" id="navbarTogglerDemo03">
+                    <% if logged_in? %>
+                    <li class="nav-item">
+                        <%= link_to  "Logout", logout_path, class: "nav-link", method: :delete %>
+                    </li>
+                    <% else %>
+                    <li class="nav-item">
+                        <%= link_to  "Login", root_path, class: "nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to  "Resgister", signup_path, class: "nav-link" %>
+                    </li>
+                    <% end %>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
     <%= yield %>
+
 </body>
 
 </html>

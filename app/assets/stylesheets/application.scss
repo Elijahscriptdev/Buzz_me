@@ -3,3 +3,34 @@
 * {
     box-sizing: border-box;
 }
+
+.col,
+.col-9 {
+    padding: 0!important;
+}
+
+.side {
+    height: 100%;
+}
+
+.sided {
+    height: 80%;
+}
+
+.logo {
+    height: 50px;
+    margin-left: 10px;
+}
+
+nav {
+  border-bottom: 2px solid rgb(100, 94, 94);
+}
+
+.col-3 {
+    padding: 0!important;
+}
+
+.w-100s {
+    width: 100%;
+    height: 70vh;
+}
