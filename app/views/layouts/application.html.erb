@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>StyleApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
+<body>
+    <ul class="sidenav" id="mobile-demo">
+        <% if logged_in? %>
+        <li>
+            <%= link_to  "Logout", logout_path, class: "font", method: :delete %>
+        </li>
+        <% else %>
+        <li>
+            <%= link_to  "Login", root_path, class: "font" %>
+        </li>
+        <li>
+            <%= link_to  "Resgister", signup_path, class: "font" %>
+        </li>
+        <% end %>
+
+    </ul>
     <%= yield %>
-  </body>
+</body>
+
 </html>
