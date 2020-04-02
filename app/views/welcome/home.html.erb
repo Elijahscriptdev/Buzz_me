@@ -46,3 +46,25 @@
         <img src="https://res.cloudinary.com/elijjaaahhhh/image/upload/v1571850133/pexels-photo-913136_qv4kak.jpg" class="d-block w-100s" alt="...">
     </div>
 </div>
+
+<div class="container-fluid">
+    <section class="articles-section">
+        <h4 class="title text-center p-3 font"> Featured Categories <i class="fas fa-caret-right font"></i> </h4>
+        <article class="articles">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                <% @categories_by_priority.each do |category| %>
+                <% category.articles.most_recent.each do |article| %>
+                <div class="col" style="background-image:url('<%# article.image %>'); background-size:cover; background-repeat: no-repeat; height:300px;">
+                    <div class="text-white mt-3"><a href="<%= category_path(category) %>"></a>
+                        <div class="card-header mt-3">
+                            <h5 class="card-title text-white"><%= link_to category.name, articles_path(@categories), class:"text-white head" %></h5>
+                            <p class="card-text text-white"><%= link_to article.title, article_path(article), class:"text-white" %></p>
+
+                        </div>
+                    </div>
+                    <%end%>
+                    <% end %>
+                </div>
+        </article>
+    </section>
+</div>

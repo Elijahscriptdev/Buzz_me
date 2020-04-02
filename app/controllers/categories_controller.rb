@@ -3,18 +3,22 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
 
-  # GET /categories
+    # GET /categories
   # GET /categories.json
   def index
     @categories = Category.all
+    @categories_by_priority = Category.ordered_by_priority.all
   end
 
   # GET /categories/1
   # GET /categories/1.json
-  def show; end
+  def show
+    @categories = Category.all
+  end
 
   # GET /categories/new
   def new
+    @categories = Category.all
     @category = Category.new
   end
 
@@ -24,6 +28,7 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
+    @categories = Category.all
     @category = Category.new(category_params)
 
     respond_to do |format|

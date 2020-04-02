@@ -24,13 +24,13 @@
                     <li class="nav-item active">
                         <%= link_to  "Home", root_path, class: "nav-link" %>
                     </li>
-                    <%# @categories.each do |category| %>
+                    <% @categories.each do |category| %>
                     <li class="nav-item">
 
-                        <%# link_to  category.name, articles_path(:cate => category.id), class: "nav-link" %>
+                        <%= link_to  category.name, articles_path(:cate => category.id), class: "nav-link" %>
 
                     </li>
-                    <%# end %>
+                    <% end %>
                     <% end %>
                 </ul>
 
