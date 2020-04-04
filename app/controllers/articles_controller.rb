@@ -24,7 +24,9 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
+    
     @article = current_user.author_articles.build(article_params)
+    # @article.image = params.fetch("image_from_query")
 
     respond_to do |format|
       if @article.save
@@ -69,6 +71,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :description, :category_id)
+      params.require(:article).permit(:title, :description, :image, :category_id)
     end
 end

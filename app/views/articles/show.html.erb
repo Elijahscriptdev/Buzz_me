@@ -17,3 +17,11 @@
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
+
+<div>
+    <%= image_tag @article.image.url %>
+
+    <%# image_tag(post.picture_url, :alt => post.short_name) %>
+
+    <%# image_tag(@article.image.url(:thumbnail), :width => 50, :height => 50) %>
+</div>
