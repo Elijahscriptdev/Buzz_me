@@ -11,6 +11,20 @@
 </head>
 
 <body>
+    <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+        <% if logged_in? %>
+        <li class="nav-item active">
+            <%= link_to  "Home", root_path, class: "nav-link" %>
+        </li>
+        <% @categories.each do |category| %>
+        <li class="nav-item">
+
+            <%= link_to  category.name, articles_path(:cate => category.id), class: "nav-link" %>
+
+        </li>
+        <% end %>
+        <% end %>
+    </ul>
     <ul class="sidenav" id="mobile-demo">
         <% if logged_in? %>
         <li>

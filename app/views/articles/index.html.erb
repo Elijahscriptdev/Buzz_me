@@ -28,4 +28,31 @@
 
 <br>
 
-<%= link_to 'New Article', new_article_path %>
+<%= link_to 'New Article', new_article_path %><div class="container-fluid ambar">
+
+    <div class="row">
+        <% @articles.each do |article| %>
+        <%# article.ordered_by_most_recent do |article| %>
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4 card">
+            <img src="..." class="align-self-center mr-3" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><%= article.category.name %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= article.title %></h6>
+                <p class="card-text"><%= article.description %></p>
+                <div>
+                    <small class="text-success font-small">Created by: <%= article.author.name %> |
+                        <%= time_ago_in_words(article.created_at) %> ago |
+                        last updated: <%= time_ago_in_words(article.updated_at) %> ago</small>
+                </div>
+
+                <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+        </div>
+        <%# end %>
+        <% end %>
+    </div>
+
+</div>
