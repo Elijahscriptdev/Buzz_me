@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_222555) do
+ActiveRecord::Schema.define(version: 2020_04_05_115436) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_04_04_222555) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "author_id"
     t.string "image"
+    t.integer "votes_count", default: 0
     t.index ["author_id"], name: "index_articles_on_author_id"
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
@@ -37,6 +38,17 @@ ActiveRecord::Schema.define(version: 2020_04_04_222555) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "article_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_votes_on_article_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "articles", "categories"
   add_foreign_key "articles", "users", column: "author_id"
+  add_foreign_key "votes", "articles"
+  add_foreign_key "votes", "users"
 end

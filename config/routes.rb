@@ -8,6 +8,11 @@ Rails.application.routes.draw do
 
   post 'signup', to: 'users#create'
   get 'signup', to: 'users#new'
+
+  resources :articles do
+    resources :votes, only: %i[create destroy]
+  end
+
   
   root 'welcome#home'
   resources :articles

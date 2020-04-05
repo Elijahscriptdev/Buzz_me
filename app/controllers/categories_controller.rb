@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
+    @categories_by_priority = Category.ordered_by_priority.all
   end
 
   # GET /categories/1
@@ -14,6 +15,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
+    @categories = Category.all
     @category = Category.new
   end
 
@@ -24,6 +26,7 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
+    @categories = Category.all
     @category = Category.new(category_params)
 
     respond_to do |format|

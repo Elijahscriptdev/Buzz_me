@@ -4,16 +4,28 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @categories = Category.all
+    cate = params[:cate]
+    @articles = if !cate.nil?
+                  Article.where(category_id: cate).ordered_by_most_recent
+                else
+                  Article.all.ordered_by_most_recent
+                end
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @user = User.all
+    @categories = Category.all
+
+    @vote = Vote.find_by(user: current_user, article: @article)
+    @most_popular = Article.most_popular
   end
 
   # GET /articles/new
   def new
+    @categories = Category.all
     @article = current_user.author_articles.build
   end
 
@@ -24,9 +36,8 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    
+    @categories = Category.all
     @article = current_user.author_articles.build(article_params)
-    # @article.image = params.fetch("image_from_query")
 
     respond_to do |format|
       if @article.save
