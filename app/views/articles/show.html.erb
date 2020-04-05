@@ -27,3 +27,76 @@
 
     <%# image_tag(@article.image.url(:thumbnail), :width => 250, :height => 250) %>
 </div>
+
+<p id="notice"><%= notice %></p>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <%= @article.title %>
+        </div>
+        <%=  image_tag @article.image.url %>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p><%= @article.description %></p>
+                <footer class="blockquote-footer"><%= @article.author.name %><cite title="Source Title"><%= time_ago_in_words(@article.created_at) %> ago</cite></footer>
+            </blockquote>
+        </div>
+        <p class="article-votes container">
+            <span> <i class="fas fa-heart"></i> <%= @article.votes.size %> </span>
+            <% if current_user == @article.author %>
+            <span class="votes">
+                <% if @vote %>
+                <a rel="nofollow" data-method="delete" href="<%= article_vote_path(id: @vote.id, article_id: @article.id) %>"> <i class="fas fa-heart"></i>Unvote</a>
+                <% else %>
+                <a rel="nofollow" data-method="post" href="<%= article_votes_path(article_id: @article.id)%>"> <i class="far fa-heart"></i>Vote</a>
+                <% end %>
+                <% end %>
+            </span>
+            <% if current_user == @article.author %>
+            <% link_to 'Edit Article', edit_article_path(@article) %>
+            <% end %>
+        </p>
+    </div>
+</div>
+
+<%# link_to 'Edit', edit_article_path(@article) %>
+<%# link_to 'Back', articles_path %>
+<div class="container my-5">
+    <section class="popular-articles-sidebar">
+        <article class="popular-articles">
+            <h2 class="title text-center p-3 font"> Most Popular <i class="fas fa-caret-right font"></i> </h2>
+            <% @most_popular.each do |article| %>
+            <div class="card mt-3">
+                <div class="popular-image" style="background-image:url('<%# article.image %>'); background-size:cover; background-repeat: no-repeat; height:100%;">
+
+
+                    <div class="card-header">
+                        <%= link_to article.title, article_path(article) %>
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <em><%= truncate(article.description, length: 100) %><em>
+                                    <footer class="blockquote-footer"><%= article.author.name %><cite title="Source Title"><%= time_ago_in_words(article.created_at) %> ago</cite></footer>
+
+                        </blockquote>
+                    </div>
+                    <p class="article-votes container">
+                        <span> <i class="fas fa-heart"></i> <%= article.votes.size %> </span>
+
+                        <span class="votes">
+                            <% if @vote %>
+                            <a rel="nofollow" data-method="delete" href="<%= article_vote_path(id: @vote.id, article_id: @article.id) %>"> <i class="fas fa-heart"></i>Unvote</a>
+                            <% else %>
+                            <a rel="nofollow" data-method="post" href="<%= article_votes_path(article_id: @article.id)%>"> <i class="far fa-heart"></i></a>
+                            <% end %>
+
+                        </span>
+
+                    </p>
+                </div>
+            </div>
+            <%end%>
+        </article>
+    </section>
+</div>
+</div>

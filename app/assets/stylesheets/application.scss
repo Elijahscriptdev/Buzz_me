@@ -1,1 +1,66 @@
 @import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
+
+.col,
+.col-9 {
+    padding: 0!important;
+}
+
+.side {
+    height: 100%;
+}
+
+.sided {
+    height: 80%;
+}
+
+.logo {
+    height: 50px;
+    margin-left: 10px;
+}
+
+nav {
+  border-bottom: 2px solid rgb(100, 94, 94);
+}
+
+.w-100s {
+    width: 100%;
+    height: 70vh;
+}
+.new {
+    width: 50%;
+}
+
+.bold {
+    font-weight: bold;
+} 
+
+h5 .head {
+    border-bottom: 3px solid orange;
+}
+
+.head {
+    border-bottom: 3px solid orange;
+    padding: 5px;
+}
+
+.font {
+    color: rgb(100, 75, 59);
+}
+
+.caption {
+    font-weight: bold;
+}
+

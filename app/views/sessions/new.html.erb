@@ -1,9 +1,30 @@
-<h1>Login</h1>
+<section class="mt-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-8 col-xl-6 card p-5 bg-light">
+                <div class="row">
+                    <div class="col text-center">
+                        <h1>Login</h1>
+                        <p class="text-h3 text-secondary">Welcome back to Buzzlife, Get yor lastest articles after you login</p>
+                    </div>
+                </div>
+                <%= form_for(:session, url: login_path) do |form| %>
+                <div class="row align-items-center">
+                    <div class="col mt-4">
+                        <%= form.label :name %>
+                        <%= form.text_field :name, class: 'form-control' %>
 
-<%= form_for(:session, url: login_path) do |form| %>
+                    </div>
+                </div>
 
-<%= form.label :name %>
-<%= form.text_field :name, class: 'form-control' %>
 
-<%= form.submit "Login", class: "btn btn-primary" %>
-<% end %>
+                <div class="row justify-content-start mt-4">
+                    <div class="col">
+                        <%= form.submit "Login", class: "btn btn-primary mt-4" %>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>
