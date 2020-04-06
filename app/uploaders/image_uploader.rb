@@ -12,17 +12,17 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def store_dir
   #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   # end
-    version :simple do
-    process :resize_to_fill => [164, 164, :fill]
-    process :convert => 'jpg'
-    cloudinary_transformation :quality => 80
+  version :simple do
+    process resize_to_fill: [164, 164, :fill]
+    process convert: 'jpg'
+    cloudinary_transformation quality: 80
   end
 
-  # Generate a 100x150 face-detection based thumbnail, 
+  # Generate a 100x150 face-detection based thumbnail,
   # round corners with a 20-pixel radius and increase brightness by 30%.
   version :bright_face do
-    cloudinary_transformation :effect => "brightness:30", :radius => 20,
-      :width => 100, :height => 150, :crop => :thumb, :gravity => :face
+    cloudinary_transformation effect: 'brightness:30', radius: 20,
+                              width: 100, height: 150, crop: :thumb, gravity: :face
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

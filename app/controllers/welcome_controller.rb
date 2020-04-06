@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-    def home
+  def home
     @categories_by_priority = Category.ordered_by_priority.all
 
     @articles = Article.all.map do |article|

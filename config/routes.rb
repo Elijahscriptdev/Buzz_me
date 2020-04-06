@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # get 'sessions/new'
   # get 'users/new'
@@ -13,7 +15,6 @@ Rails.application.routes.draw do
     resources :votes, only: %i[create destroy]
   end
 
-  
   root 'welcome#home'
   resources :articles, only: %i[create destroy]
   resources :categories, only: %i[index show]
