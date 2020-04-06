@@ -14,9 +14,9 @@
                             <%= time_ago_in_words(article.created_at) %> ago |
                             last updated: <%= time_ago_in_words(article.updated_at) %> ago</small>
                     </div>
-                    <% if current_user == article.author %>
-                    <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
-                    <% end %>
+                    <%# if current_user == article.author %>
+                    <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%# end %>
                 </div>
             </div>
         </div>

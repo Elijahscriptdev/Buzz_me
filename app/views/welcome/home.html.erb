@@ -63,7 +63,7 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
                 <% @categories_by_priority.each do |category| %>
                 <% category.articles.most_recent.each do |article| %>
-                <div class="col" style="background-image:url('<%= article.image %>'); background-size:cover; background-repeat: no-repeat; height:300px;">
+                <div class="col " style="background-image:url('<%= article.image %>'); background-size:cover; background-repeat: no-repeat; height:300px;">
                     <div class="text-white mt-3"><a href="<%= category_path(category) %>"></a>
                         <div class="card-header mt-3">
                             <h5 class="card-title text-white"><%= link_to category.name, articles_path(@categories), class:"text-white head" %></h5>
@@ -82,6 +82,7 @@
     </section>
 </div>
 
+<%# linear-gradient(to bottom, rgba(246, 246, 253, 0.52), rgba(88, 88, 88, 0.73)), %>
 <%# <div class="accordion container" id="accordionExample">
     <div class="card">
         <div class="card-header" id="headingOne">
