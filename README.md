@@ -98,7 +98,7 @@ Contributions, issues and feature requests are welcome!
 Give a ⭐️ if you like this project!
 
 ## Credits
-App UI design by Gregoire Vella on [Behance](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding)
+App UI Design idea by Nelson Sakwa on [Behance](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version)
 
 ## 📝 License
 
