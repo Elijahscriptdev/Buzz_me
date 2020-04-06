@@ -6,7 +6,7 @@
                 <h5 class=" card-header"><%= article.category.name %></h5>
                 <div class="card-body">
                     <%#  image_tag article.image.url %>
-                    <%= image_tag(article.image.url, :width => 250, :height => 200) %>
+                    <%# image_tag(article.image.url, :width => 250, :height => 200) %>
                     <h5 class="card-title"><%= link_to article.title, article_path(article) %></h5>
                     <p class="card-text"><%= truncate(article.description, length: 100) %></p>
                     <div>
