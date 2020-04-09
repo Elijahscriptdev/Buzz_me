@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    @categories = Category.all
+    # @categories = Category.all
     @category = Category.new
   end
 
@@ -24,7 +24,7 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-    @categories = Category.all
+    # @categories = Category.all
     @category = Category.new(category_params)
 
     respond_to do |format|

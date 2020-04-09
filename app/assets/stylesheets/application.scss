@@ -7,6 +7,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+    font: 600 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #sticky-footer {
@@ -53,7 +54,12 @@ h5 .head {
 
 .head {
     border-bottom: 3px solid orange;
-    padding: 5px;
+    padding: 1px;
+}
+
+#bg-header {
+    background-color: transparent; 
+    border-bottom: none!important; 
 }
 
 .font {
@@ -64,13 +70,99 @@ h5 .head {
     font-weight: bold;
 }
 
-// #show_bg_2 {
- 
-// background-image:
-// linear-gradient(to bottom, rgba(246, 246, 253, 0.52), rgba(88, 88, 88, 0.73)),
-// url('images/background.jpg');
- 
-// width: 80%;
-// height: 400px;
-// background-size: cover;
-// }
+$gray: #ccc;
+
+form {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 600px; 
+  h1 {
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-family: 'Open Sans';
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 3px solid $gray;
+  }
+}
+
+.bg {
+    background: transparentize($color: #000000, $amount: 0.5);
+    padding: 5px;
+}
+
+*******************
+    // body {
+    //     color: #999;
+	// 	background: #f5f5f5;
+	// 	font-family: 'Varela Round', sans-serif;
+	// }
+	.form-control {
+		box-shadow: none;
+		border-color: #ddd;
+	}
+	.form-control:focus {
+		border-color: #6C1103; 
+	}
+	.login-form {
+        width: 350px;
+		margin: 0 auto;
+		padding: 30px 0;
+	}
+    .login-form form {
+        color: #434343;
+		border-radius: 1px;
+    	margin-bottom: 15px;
+        background: #fff;
+		border: 1px solid #f3f3f3;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+	}
+	.login-form h4 {
+		text-align: center;
+		font-size: 22px;
+        margin-bottom: 20px;
+	}
+    .login-form .avatar {
+        color: #fff;
+		margin: 0 auto 30px;
+        text-align: center;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		z-index: 9;
+		background: #6C1103;
+		padding: 15px;
+		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+	}
+    .login-form .avatar i {
+        font-size: 62px;
+    }
+    .login-form .form-group {
+        margin-bottom: 20px;
+    }
+	.login-form .form-control, .login-form .btn {
+		min-height: 40px;
+		border-radius: 2px; 
+        transition: all 0.5s;
+	}
+	.login-form .close {
+        position: absolute;
+		top: 15px;
+		right: 15px;
+	}
+	.login-form .btn {
+		background: #6C1103;
+		border: none;
+		line-height: normal;
+	}
+    .login-form .forgot-link {
+        float: right;
+    }
+    .login-form .small {
+        font-size: 13px;
+    }
+    .login-form a {
+        color: #6C1103;
+        font-weight: bold;
+    }

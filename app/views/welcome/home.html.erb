@@ -65,12 +65,12 @@
                 <% category.articles.most_recent.each do |article| %>
                 <div class="col " style="background-image:url('<%= article.image %>'); background-size:cover; background-repeat: no-repeat; height:300px;">
                     <div class="text-white mt-3"><a href="<%= category_path(category) %>"></a>
-                        <div class="card-header mt-3">
-                            <h5 class="card-title text-white"><%= link_to category.name, articles_path(@categories), class:"text-white head" %></h5>
-                            <p class="card-text text-white"><%= link_to article.title, article_path(article), class:"text-white" %></p>
-                            <p class="card-text"><small class="text-white font-small">Created by: <%= article.author.name %> |
-                                    <%= time_ago_in_words(article.created_at) %> ago |
-                                    last updated: <%= time_ago_in_words(article.updated_at) %> ago</small></p>
+                        <div class="card-header mt-3 " id="bg-header">
+                            <h5 class="card-title text-white head bg">
+                                <%= category.name %>
+                                <%# link_to category.name, articles_path(@categories), class:"text-white head bg" %></h5>
+                            <p class="card-text text-white "><%= link_to article.title, article_path(article), class:"text-white bg" %></p>
+
                         </div>
 
                     </div>

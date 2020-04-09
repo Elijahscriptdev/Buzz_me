@@ -11,10 +11,10 @@ class Article < ApplicationRecord
 
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
 
-  scope :first_article, -> { order(created_at: :desc).first(1) }
-  scope :most_recent, -> { order(created_at: :desc).first(1) }
-  scope :recent, -> { order(created_at: :desc) }
-  scope :featured_recent, -> { order(created_at: :desc).first(2) }
-  scope :featured, -> { order(votes_count: :desc).first }
+  # scope :first_article, -> { order(created_at: :desc).first(1) }
+  scope :most_recent, -> { order(created_at: :desc) }
+  # scope :recent, -> { order(created_at: :desc) }
+  scope :featured_recent, -> { order(created_at: :desc) }
+  scope :featured, -> { order(votes_count: :desc) }
   scope :most_popular, -> { order(votes_count: :desc).first(5) }
 end

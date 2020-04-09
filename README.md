@@ -63,6 +63,10 @@ Run the migrations
 ```sh
 $ rails db:migrate
 ```
+Run seed migrations
+```sh
+$ rails db:seed
+```
 
 
 ### Usage
