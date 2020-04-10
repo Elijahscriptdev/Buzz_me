@@ -7,6 +7,7 @@ gem 'cloudinary'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'material_icons'
 gem 'simple_form'
+gem 'acts_as_votable'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 # Use sqlite3 as the database for Active Record
