@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
-  skip_before_action :require_user, only: %i[new create]
+  # skip_before_action :require_user, only: %i[new create]
 
   def new
+    @categories = Category.all
     @user = User.new
   end
 
   def create
+    @categories = Category.all
     @user = User.new(user_params)
     if @user.save
       log_in @user

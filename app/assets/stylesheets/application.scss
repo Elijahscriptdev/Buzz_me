@@ -92,11 +92,6 @@ form {
 }
 
 *******************
-    // body {
-    //     color: #999;
-	// 	background: #f5f5f5;
-	// 	font-family: 'Varela Round', sans-serif;
-	// }
 	.form-control {
 		box-shadow: none;
 		border-color: #ddd;
@@ -166,3 +161,141 @@ form {
         color: #6C1103;
         font-weight: bold;
     }
+
+    @import url(https://fonts.googleapis.com/css?family=Gentium+Book+Basic:400,700);
+
+.new-article {
+    background-color: rgb(167, 165, 165);
+}
+
+* {
+  margin:0;
+  padding:0;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+  outline:none;
+  border:0;
+}
+
+.wrap {
+  max-width:900px;
+  width:80%;
+  margin:0 auto;
+}
+
+.wrap h1 {
+  font-size:3.2em;
+  font-family:"Gentium Book Basic";
+  font-weight:900;
+  color:#fff;
+  text-shadow:0px 1px 0px rgba(0,0,0,.1);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing:-3px;
+}
+
+.wrap p {
+  font-family:"Gentium Book Basic";
+  font-size:1.2em;
+  color:#fff;
+  text-shadow:0px 1px 0px rgba(0,0,0,.1);
+  letter-spacing:1px;
+}
+
+.fa {
+  margin-right:10px;
+}
+
+.mainWrap {
+  max-width:900px;
+  width:80%;
+  margin:0 auto;
+  padding-bottom:100px;
+}
+
+.name {
+  width:100%;
+  border:0;
+  background:#fff;
+  padding:10px;
+  font-size:1.2em;
+  font-family:"Gentium Book Basic";
+  box-shadow:4px 4px 0px rgba(0,0,0,.1);
+  color:#111;
+}
+
+::-webkit-input-placeholder {
+  color: #696969;
+}
+
+:-moz-placeholder {
+ color: #696969; 
+}
+
+::-moz-placeholder {  
+ color: #696969;
+}
+
+:-ms-input-placeholder {  
+ color: #696969;
+}
+
+.name {
+  float:left;
+}
+
+.email {
+  float:right;
+}
+
+.mainArea {
+  width:100%;
+  box-shadow:4px 4px 0px rgba(0,0,0,.1);
+  font-size:1.4em;
+  margin-top:20px;
+  padding:20px;
+  font-family:"Gentium Book Basic";
+  color:#111;
+  height:300px;
+  resize:none;
+}
+
+.bigBtn {
+  width:100%;
+  padding:20px;
+  text-align:center;
+  margin-top:20px;
+  font-size:2em;
+  font-family:"Gentium Book Basic";
+  background:#6C1103;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* Landscape mobile & down */
+@media (max-width: 30em) {
+  .wrap h1 {
+    font-size:2.3em;
+    letter-spacing:0;
+  }
+  
+  .wrap p {
+    font-size:1.1em;
+    line-height:1.4em;
+  }
+  
+  .name {
+    width:100%;
+  }
+  
+  .bigBtn {
+    font-size:1.3em;
+  }
+  
+}
+
+
+.jumbotron { 
+    // background-color: transparent !important;
+    background: transparentize($color: #000000, $amount: 0.5);
+}

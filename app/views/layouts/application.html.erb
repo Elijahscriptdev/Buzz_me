@@ -20,7 +20,7 @@
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
-                    <% if logged_in? %>
+                    <%# if logged_in? %>
                     <li class="nav-item active">
                         <%= link_to  "Home", root_path, class: "nav-link" %>
                     </li>
@@ -31,7 +31,7 @@
 
                     </li>
                     <% end %>
-                    <% end %>
+                    <%# end %>
                 </ul>
 
                 <ul class="navbar-nav" id="navbarTogglerDemo03">
@@ -41,7 +41,7 @@
                     </li>
                     <% else %>
                     <li class="nav-item">
-                        <%= link_to  "Login", root_path, class: "nav-link" %>
+                        <%= link_to  "Login", login_path, class: "nav-link" %>
                     </li>
                     <li class="nav-link">
                         |
