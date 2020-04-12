@@ -4,7 +4,7 @@
         <div class="card-header">
             <%= @article.title %>
         </div>
-        <%=  image_tag @article.image.url, :height => 350, :crop=>"fill" %>
+        <%=image_tag @article.image.url, :height => 350, :crop=>"fill" %>
         <div class="card-body">
             <blockquote class="blockquote mb-0">
                 <p><%= @article.description %></p>

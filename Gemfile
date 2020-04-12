@@ -3,8 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
 gem 'carrierwave'
-gem 'fog', '~> 2.2'
-gem 'mini_magick', '~> 4.10', '>= 4.10.1'
+# gem 'fog', '~> 2.2'
+# gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'cloudinary'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'material_icons'
