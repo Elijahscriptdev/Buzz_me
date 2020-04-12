@@ -4,11 +4,11 @@
         <div class="card-header">
             <%= @article.title %>
         </div>
-        <%=  image_tag @article.image.url, :width => 400, :height => 500, :crop=>"fill" %>
+        <%=  image_tag @article.image.url, :height => 350, :crop=>"fill" %>
         <div class="card-body">
             <blockquote class="blockquote mb-0">
                 <p><%= @article.description %></p>
-                <footer class="blockquote-footer"><%= @article.author.name %><cite title="Source Title"><%= time_ago_in_words(@article.created_at) %> ago</cite></footer>
+                <footer class="blockquote-footer"><%= @article.author.name %>-- <cite title="Source Title"><%= time_ago_in_words(@article.created_at) %> ago</cite></footer>
             </blockquote>
         </div>
         <p class="article-votes container">
@@ -44,7 +44,7 @@
                     <div class="card-body">
                         <blockquote class="blockquote mb-0">
                             <em><%= truncate(article.description, length: 100) %><em>
-                                    <footer class="blockquote-footer"><%= article.author.name %><cite title="Source Title"><%= time_ago_in_words(article.created_at) %> ago</cite></footer>
+                                    <footer class="blockquote-footer"><%= article.author.name %>-- <cite title="Source Title"><%= time_ago_in_words(article.created_at) %> ago</cite></footer>
 
                         </blockquote>
                     </div>

@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
 gem 'carrierwave'
+gem 'fog', '~> 2.2'
+gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'cloudinary'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'material_icons'
@@ -46,6 +48,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'figaro', '~> 1.1', '>= 1.1.1'
 end
 
 group :test do
