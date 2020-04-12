@@ -49,7 +49,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  gem 'figaro', '~> 1.1', '>= 1.1.1'
+  # gem 'figaro', '~> 1.1', '>= 1.1.1'
 end
 
 group :test do
