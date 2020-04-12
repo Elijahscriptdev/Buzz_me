@@ -17,10 +17,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    # @user = User.all
     @categories = Category.all
-
-    @vote = Vote.find_by(user: current_user, article: @article)
     @most_popular = Article.most_popular
   end
 
@@ -74,7 +71,36 @@ class ArticlesController < ApplicationController
     end
   end
 
-  private
+  def upvote
+    @article = Article.find_by(id: params[:id])
+    
+    if current_user.upvoted?(@article)
+      current_user.remove_vote(@article)
+    elsif current_user.downvoted?(@article)
+      current_user.remove_vote(@article)
+      current_user.upvote(@article)
+    else
+      current_user.upvote(@article)
+    end
+      redirect_to @article
+  end
+
+  def downvote
+    @article = Article.find_by(id: params[:id])
+
+    if current_user.downvoted?(@article)
+      current_user.remove_vote(@article)
+    elsif current_user.upvoted?(@article)
+      current_user.remove_vote(@article)
+      current_user.downvote(@article)
+    else
+      current_user.downvote(@article)
+    end
+
+    redirect_to @article
+  end
+
+  private 
 
   # Use callbacks to share common setup or constraints between actions.
   def set_article

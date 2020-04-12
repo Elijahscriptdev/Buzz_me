@@ -2,7 +2,7 @@ class Article < ApplicationRecord
   belongs_to :author, class_name: 'User'
   belongs_to :category
   mount_uploader :image, ImageUploader
-  has_many :votes, dependent: :destroy
+  has_many :votes
 
   # acts_as_votable
 
@@ -19,4 +19,13 @@ class Article < ApplicationRecord
   scope :featured_recent, -> { order(created_at: :desc).first(1) }
   scope :featured, -> { order(votes_count: :desc).first(1) }
   scope :most_popular, -> { order(votes_count: :desc).first(5) }
+
+  def upvotes
+    votes.sum(:upvote)
+  end
+
+  def downvotes
+    votes.sum(:downvote)
+  end
+
 end

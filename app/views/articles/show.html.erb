@@ -12,16 +12,14 @@
             </blockquote>
         </div>
         <p class="article-votes container">
-            <span> <i class="fas fa-heart"></i> <%= @article.votes.size %> </span>
-            <% if current_user == @article.author %>
-            <span class="votes">
-                <% if @vote %>
-                <a rel="nofollow" data-method="delete" href="<%= article_vote_path(id: @vote.id, article_id: @article.id) %>"> <i class="fas fa-heart"></i>Unvote</a>
-                <% else %>
-                <a rel="nofollow" data-method="post" href="<%= article_votes_path(article_id: @article.id)%>"> <i class="far fa-heart"></i>Vote</a>
-                <% end %>
-                <% end %>
+            <% if logged_in? %>
+            <span class="upvote-link">
+                <%= link_to "upvote (#{@article.upvotes})", upvote_article_path(@article), method: :post %>
             </span>
+            <span class="downvote-link">
+                <%= link_to "downvote (#{@article.downvotes})", downvote_article_path(@article), method: :post %>
+            </span>
+            <% end %>
             <% if current_user == @article.author %>
             <% link_to 'Edit Article', edit_article_path(@article) %>
             <% end %>
@@ -51,16 +49,14 @@
                         </blockquote>
                     </div>
                     <p class="article-votes container">
-                        <span> <i class="fas fa-heart"></i> <%= article.votes.size %> </span>
-
-                        <span class="votes">
-                            <% if @vote %>
-                            <a rel="nofollow" data-method="delete" href="<%= article_vote_path(id: @vote.id, article_id: @article.id) %>"> <i class="fas fa-heart"></i>Unvote</a>
-                            <% else %>
-                            <a rel="nofollow" data-method="post" href="<%= article_votes_path(article_id: @article.id)%>"> <i class="far fa-heart"></i></a>
-                            <% end %>
-
+                        <% if logged_in? %>
+                        <span class="upvote-link">
+                            <%= link_to "upvote (#{article.upvotes})", upvote_article_path(article), method: :post %>
                         </span>
+                        <span class="downvote-link">
+                            <%= link_to "downvote (#{@article.downvotes})", downvote_article_path(@article), method: :post %>
+                        </span>
+                        <% end %>
 
                     </p>
                 </div>
