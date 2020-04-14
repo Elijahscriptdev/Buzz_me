@@ -6,11 +6,11 @@ class User < ApplicationRecord
   has_many :votes
 
   def upvote(article)
-    votes.create(is_upvote: 1, article: article)
+    votes.create(is_upvote: true, article: article)
   end
 
   def upvoted?(article)
-    votes.exists?(is_upvote: 1, article: article)
+    votes.exists?(is_upvote: true, article: article)
   end
 
   def remove_vote(article)
@@ -18,11 +18,11 @@ class User < ApplicationRecord
   end
 
   def downvote(article)
-    votes.create(is_downvote: 1, article: article)
+    votes.create(is_downvote: true, article: article)
   end
 
   def downvoted?(article)
-    votes.exists?(is_downvote: 1, article: article)
+    votes.exists?(is_downvote: true, article: article)
   end
 
 end
