@@ -12,14 +12,7 @@
             </blockquote>
         </div>
         <p class="article-votes container">
-            <% if logged_in? %>
-            <span class="upvote-link">
-                <%= link_to "upvote (#{@article.upvotes})", upvote_article_path(@article), method: :post %>
-            </span>
-            <span class="downvote-link">
-                <%= link_to "downvote (#{@article.downvotes})", downvote_article_path(@article), method: :post %>
-            </span>
-            <% end %>
+
             <% if current_user == @article.author %>
             <% link_to 'Edit Article', edit_article_path(@article) %>
             <% end %>
@@ -51,10 +44,10 @@
                     <p class="article-votes container">
                         <% if logged_in? %>
                         <span class="upvote-link">
-                            <%= link_to "upvote (#{article.upvotes})", upvote_article_path(article), method: :post %>
+                            <%= link_to "upvote (#{article.votes.upvote.size})", upvote_article_path(@article), method: :post %>
                         </span>
                         <span class="downvote-link">
-                            <%= link_to "downvote (#{@article.downvotes})", downvote_article_path(@article), method: :post %>
+                            <%= link_to "downvote (#{article.votes.downvote.size})", downvote_article_path(@article), method: :post %>
                         </span>
                         <% end %>
 

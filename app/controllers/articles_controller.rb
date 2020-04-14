@@ -100,6 +100,16 @@ class ArticlesController < ApplicationController
     redirect_to @article
   end
 
+  # def upvote
+  #   article = Article.find(params[:id])
+  #   Vote.create!(article: article, user: current_user, is_upvote: true)
+  # end
+
+  # def downvote
+  #   article = Article.find(params[:id])
+  #   Vote.create!(article: article, user: current_user, is_upvote: true)
+  # end
+
   private 
 
   # Use callbacks to share common setup or constraints between actions.

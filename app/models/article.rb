@@ -20,12 +20,19 @@ class Article < ApplicationRecord
   scope :featured, -> { order(votes_count: :desc).first(1) }
   scope :most_popular, -> { order(votes_count: :desc).first(5) }
 
-  def upvotes
-    votes.sum(:upvote)
-  end
+  # def upvotes
+  #   votes.sum(:upvote)
+  # end
 
-  def downvotes
-    votes.sum(:downvote)
+  # def downvotes
+  #   votes.sum(:downvote)
+  # end
+
+  def upvote
+    votes.upvote
+  end
+  def downvote
+    votes.downvote
   end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_115248) do
+ActiveRecord::Schema.define(version: 2020_04_14_172209) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 2020_04_05_115248) do
   create_table "votes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "article_id"
-    t.integer "upvote", default: 0
-    t.integer "downvote", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_upvote"
+    t.boolean "is_downvote"
     t.index ["article_id"], name: "index_votes_on_article_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
