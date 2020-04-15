@@ -28,7 +28,9 @@ class ArticlesController < ApplicationController
   end
 
   # GET /articles/1/edit
-  def edit; end
+  def edit
+    @categories = Category.all
+  end
 
   # POST /articles
   # POST /articles.json

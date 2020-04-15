@@ -17,8 +17,8 @@ class Article < ApplicationRecord
   scope :most_recent, -> { order(created_at: :desc).first(1) }
   # scope :recent, -> { order(created_at: :desc) }
   scope :featured_recent, -> { order(created_at: :desc).first(1) }
-  scope :featured, -> { order(votes_count: :desc).first(1) }
-  scope :most_popular, -> { order(votes_count: :desc).first(5) }
+  scope :featured, -> { order(upvote: :desc).first(1) }
+  scope :most_popular, -> { order(upvote: :desc).first(5) }
 
   # def upvotes
   #   votes.sum(:upvote)
