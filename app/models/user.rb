@@ -24,5 +24,4 @@ class User < ApplicationRecord
   def downvoted?(article)
     votes.exists?(is_downvote: true, article: article)
   end
-
 end

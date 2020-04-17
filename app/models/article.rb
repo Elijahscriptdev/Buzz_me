@@ -31,8 +31,8 @@ class Article < ApplicationRecord
   def upvote
     votes.upvote
   end
+
   def downvote
     votes.downvote
   end
-
 end

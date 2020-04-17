@@ -75,7 +75,7 @@ class ArticlesController < ApplicationController
 
   def upvote
     @article = Article.find_by(id: params[:id])
-    
+
     if current_user.upvoted?(@article)
       current_user.remove_vote(@article)
     elsif current_user.downvoted?(@article)
@@ -84,7 +84,7 @@ class ArticlesController < ApplicationController
     else
       current_user.upvote(@article)
     end
-      redirect_to @article
+    redirect_to @article
   end
 
   def downvote
@@ -112,7 +112,7 @@ class ArticlesController < ApplicationController
   #   Vote.create!(article: article, user: current_user, is_upvote: true)
   # end
 
-  private 
+  private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_article

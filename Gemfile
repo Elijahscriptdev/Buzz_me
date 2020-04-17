@@ -5,11 +5,11 @@ ruby '2.7.0'
 gem 'carrierwave'
 # gem 'fog', '~> 2.2'
 # gem 'mini_magick', '~> 4.10', '>= 4.10.1'
+gem 'acts_as_votable'
 gem 'cloudinary'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'material_icons'
 gem 'simple_form'
-gem 'acts_as_votable'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 # Use sqlite3 as the database for Active Record
@@ -36,7 +36,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+  gem 'rspec-rails'
   gem 'sqlite3', '~> 1.4'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
@@ -56,6 +58,7 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '4.3.0'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
