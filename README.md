@@ -18,7 +18,7 @@ To build a Ruby on Rails application where people can write articles covering al
 - Cloudinary
 
 ## Live Demo
-[Live link](https://shrouded-tundra-78085.herokuapp.com/)
+[Live link](https://buzzlife.herokuapp.com/)
 
 
 ## Prerequisites
