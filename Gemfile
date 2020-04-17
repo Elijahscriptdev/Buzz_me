@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.0'
 gem 'carrierwave'
+gem 'rubocop', '~> 0.82.0', require: false
 # gem 'fog', '~> 2.2'
 # gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'acts_as_votable'
