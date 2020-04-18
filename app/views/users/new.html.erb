@@ -1,9 +1,0 @@
-<h1>Sign Up</h1>
-
-<%= form_for(@user, url: signup_path) do |form| %>
-
-<%= form.label :name %>
-<%= form.text_field :name, class: 'form-control' %>
-
-<%= form.submit "Signup", class: "btn btn-primary" %>
-<% end %>
