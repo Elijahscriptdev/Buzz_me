@@ -1,8 +1,7 @@
 # Project: BuzzLife Blog
 
-This is part of Capstone project in Microverse's rails curriculum. Find it [here](https://www.notion.so/Lifestyle-articles-b82a5f10122b4cec924cd5d4a6cf7561)
-To build a Ruby on Rails application where people can write articles covering all aspects of life. 
-
+This is part of Capstone project in Microverse's rails curriculum, to build a Ruby on Rails application where people can write articles. Find it [here](https://www.notion.so/Lifestyle-articles-b82a5f10122b4cec924cd5d4a6cf7561).
+This is a website with articles about books, wedding business, fishing equipment, mushrooms - anything that you can write an article.
 
 ## Built With
 
@@ -18,8 +17,10 @@ To build a Ruby on Rails application where people can write articles covering al
 - Cloudinary
 
 ## Live Demo
-[Live link](https://buzzlife.herokuapp.com/)
+[Live link](https://www.loom.com/share/9ba0037865ce40e6b6a890a34d4e632a)
 
+## Deployment to heroku
+[Live link](https://buzzlife.herokuapp.com/)
 
 ## Prerequisites
 
