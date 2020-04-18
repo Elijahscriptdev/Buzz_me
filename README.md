@@ -16,7 +16,7 @@ This is a website with articles about books, wedding business, fishing equipment
 - SASS
 - Cloudinary
 
-## Live Demo
+## Live Demo(video link)
 [Live link](https://www.loom.com/share/9ba0037865ce40e6b6a890a34d4e632a)
 
 ## Deployment to heroku
