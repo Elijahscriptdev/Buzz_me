@@ -4,8 +4,9 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
+    # Article.order(published_at: :desc).includes(:authors).limit(5)
     @categories = Category.all
-    @categories_by_priority = Category.ordered_by_priority.all
+    @categories_by_priority = Category.order(priority: :asc).includes(:articles)
   end
 
   # GET /categories/1

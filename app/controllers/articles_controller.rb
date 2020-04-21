@@ -8,9 +8,9 @@ class ArticlesController < ApplicationController
     @categories = Category.all
     cate = params[:cate]
     @articles = if !cate.nil?
-                  Article.where(category_id: cate).ordered_by_most_recent
+                  Article.where(category_id: cate).order(created_at: :desc).includes(:category, :author)
                 else
-                  Article.all.ordered_by_most_recent
+                  Article.order(created_at: :desc).includes(:category, :author)
                 end
   end
 
