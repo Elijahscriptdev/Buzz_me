@@ -37,15 +37,15 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-    # The RSpec testing framework
-  gem 'rspec-rails'
- 
+  # The RSpec testing framework
+  # gem 'rspec-rails'
+
   # Capybara, the library that allows us to interact with the browser using Ruby
   # gem 'capybara'
- 
+
   # This gem helps Capybara interact with the web browser.
-  gem 'webdrivers'
   gem 'sqlite3', '~> 1.4'
+  # gem 'webdrivers'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
