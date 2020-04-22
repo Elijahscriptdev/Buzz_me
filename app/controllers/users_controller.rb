@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
-  skip_before_action :require_user, only: [:new, :create]
-  
+  # skip_before_action :require_user, only: %i[new create]
+
   def new
+    @categories = Category.all
     @user = User.new
   end
 
   def create
+    @categories = Category.all
     @user = User.new(user_params)
     if @user.save
       log_in @user
@@ -26,13 +28,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-        if @user.update(user_params)
-            flash[:success] = "Your profile was successfully edited"
-            redirect_to @user
-        else
-            render 'edit'
-        end
+    if @user.update(user_params)
+      flash[:success] = 'Your profile was successfully edited'
+      redirect_to @user
+    else
+      render 'edit'
     end
+  end
 
   private
 

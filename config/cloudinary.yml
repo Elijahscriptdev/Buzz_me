@@ -1,0 +1,12 @@
+development:
+  cloud_name: "elijjaaahhhh"
+  api_key: "592811289668126"
+  api_secret: "viRbOI8-q_pjN-5EdL3EJLShSFE"
+
+production:
+  cloud_name: "elijjaaahhhh"
+  api_key: "592811289668126"
+  api_secret: "viRbOI8-q_pjN-5EdL3EJLShSFE"
+
+enhance_image_tag: true
+static_file_support: true

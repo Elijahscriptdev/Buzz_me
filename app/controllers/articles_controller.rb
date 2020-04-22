@@ -1,29 +1,41 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  # before_action :require_user
+  before_action :set_article, only: %i[show edit update destroy]
 
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @categories = Category.all
+    cate = params[:cate]
+    @articles = if !cate.nil?
+                  Article.where(category_id: cate).order(created_at: :desc).includes(:category, :author)
+                else
+                  Article.order(created_at: :desc).includes(:category, :author)
+                end
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @categories = Category.all
+    @most_popular = Article.most_popular
   end
 
   # GET /articles/new
   def new
+    @categories = Category.all
     @article = current_user.author_articles.build
   end
 
   # GET /articles/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /articles
   # POST /articles.json
   def create
+    @categories = Category.all
     @article = current_user.author_articles.build(article_params)
 
     respond_to do |format|
@@ -61,14 +73,54 @@ class ArticlesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
+  def upvote
+    @article = Article.find_by(id: params[:id])
+
+    if current_user.upvoted?(@article)
+      current_user.remove_vote(@article)
+    elsif current_user.downvoted?(@article)
+      current_user.remove_vote(@article)
+      current_user.upvote(@article)
+    else
+      current_user.upvote(@article)
+    end
+    redirect_to @article
+  end
+
+  def downvote
+    @article = Article.find_by(id: params[:id])
+
+    if current_user.downvoted?(@article)
+      current_user.remove_vote(@article)
+    elsif current_user.upvoted?(@article)
+      current_user.remove_vote(@article)
+      current_user.downvote(@article)
+    else
+      current_user.downvote(@article)
     end
 
-    # Only allow a list of trusted parameters through.
-    def article_params
-      params.require(:article).permit(:title, :description, :category_id)
-    end
+    redirect_to @article
+  end
+
+  # def upvote
+  #   article = Article.find(params[:id])
+  #   Vote.create!(article: article, user: current_user, is_upvote: true)
+  # end
+
+  # def downvote
+  #   article = Article.find(params[:id])
+  #   Vote.create!(article: article, user: current_user, is_upvote: true)
+  # end
+
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def article_params
+    params.require(:article).permit(:title, :description, :image, :category_id)
+  end
 end

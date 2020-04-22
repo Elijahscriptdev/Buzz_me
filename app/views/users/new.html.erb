@@ -1,9 +1,32 @@
-<h1>Sign Up</h1>
+<section class="mt-1">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="login-form">
+                <%= form_for(@user, url: signup_path) do |form| %>
+                <div class="avatar"><i class="fas fa-user"></i></div>
+                <div class="row">
+                    <div class="col text-center">
+                        <h1>Signup</h1>
+                        <p class="text-h3 text-secondary">
+                            <em>Welcome back to Buzzlife, Get yor lastest articles after you login<em>
+                        </p>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col mt-1">
+                        <%# form.label :name %>
+                        <%= form.text_field :name, class: 'form-control', placeholder:"name" %>
 
-<%= form_for(@user, url: signup_path) do |form| %>
-
-<%= form.label :name %>
-<%= form.text_field :name, class: 'form-control' %>
-
-<%= form.submit "Signup", class: "btn btn-primary" %>
-<% end %>
+                    </div>
+                </div>
+                <div class="row justify-content-start mt-4">
+                    <div class="col">
+                        <%= form.submit "Signup", class: "btn btn-primary btn-block btn-lg" %>
+                    </div>
+                </div>
+                <div class="text-center small mt-1">Already have an account? <%= link_to  "Login", login_path, class: "link" %></div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>

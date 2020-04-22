@@ -1,19 +1,105 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+    <div class="row">
+        <div class="col-8 my-2">
+            <!-- Single Blog -->
+            <div class="single-blog">
+                <div class="blog-img">
+                    <%= image_tag @article.image.url, :height => 350, :crop=>"fill" %>
+                    <div class="post-category">
+                        <a><%= @article.category.name %></a>
+                    </div>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-title">
+                        <h4>
+                            <%= @article.title %>
+                        </h4>
+                        <div class="meta">
+                            <ul>
+                                <li><i class="fas fa-clock text-secondary"></i> <%= time_ago_in_words(@article.created_at) %> ago</li>
+                                <li>
+                                    <small class=" font-small">Created by: <%= @article.author.name %></small>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="text"><%= @article.description %></p>
+                    <%# link_to "read more", article_path(article), class: "box_btn" %>
+                    <p class="article-votes container">
+                        <% if logged_in? %>
+                        <span class="upvote-link mr-2">
+                            <%# link_to "upvote (#{@article.votes.upvote.size})", upvote_article_path(@article), method: :post %>
+                            <a data-method="post" href="<%= upvote_article_path(@article) %>"><i class="fas fa-thumbs-up text-secondary"></i>(<%= @article.votes.upvote.size %>)</a>
+                        </span>
+                        <span class="downvote-link ml-2">
+                            <a data-method="post" href="<%= downvote_article_path(@article) %>"><i class="fas fa-thumbs-down text-secondary"></i>(<%= @article.votes.downvote.size %>)</a>
+                            <%# link_to "downvote (#{@article.votes.downvote.size})", downvote_article_path(@article), method: :post %>
+                        </span>
+                        <% end %>
 
-<p>
-    <strong>Title:</strong>
-    <%= @article.title %>
-</p>
+                    </p>
+                    <% if current_user == @article.author %>
+                    <%= link_to 'Edit Article', edit_article_path(@article), class: "box_btn" %>
+                    <%= link_to 'Delete', @article, method: :delete, data: { confirm: 'Are you sure?' }, class: "box_btn" %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
 
-<p>
-    <strong>Description:</strong>
-    <%= @article.description %>
-</p>
+        <section class="popular-articles-sidebar col-4">
+            <article class="popular-articles">
+                <h2 class="title text-center p-3 font"> Most Popular <i class="fas fa-caret-right font"></i> </h2>
+                <% @most_popular.each do |article| %>
+                <div class="">
+                    <!-- Single Blog -->
+                    <div class="single-blog">
+                        <div class="blog-img">
+                            <%= image_tag(article.image.url, :width => 250, :height => 200) %>
+                            <div class="post-category">
+                                <a><%= article.category.name %></a>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-title">
+                                <h4>
+                                    <%= link_to article.title, article_path(article) %>
+                                </h4>
+                                <div class="meta">
+                                    <ul>
+                                        <li><%= time_ago_in_words(article.created_at) %> ago</li>
+                                        <li>
+                                            <small class=" font-small">Created by: <%= article.author.name %></small>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p class="text"><%= truncate(article.description, length: 100) %></p>
+                            <p class="article-votes container">
+                                <% if logged_in? %>
+                                <span class="upvote-link mr-2">
+                                    <%# link_to "upvote (#{@article.votes.upvote.size})", upvote_article_path(@article), method: :post %>
+                                    <a data-method="post" href="<%= upvote_article_path(@article) %>"><i class="fas fa-thumbs-up text-secondary"></i>(<%= @article.votes.upvote.size %>)</a>
+                                </span>
+                                <span class="downvote-link ml-2">
+                                    <a data-method="post" href="<%= downvote_article_path(@article) %>"><i class="fas fa-thumbs-down text-secondary"></i>(<%= @article.votes.downvote.size %>)</a>
+                                    <%# link_to "downvote (#{@article.votes.downvote.size})", downvote_article_path(@article), method: :post %>
+                                </span>
+                                <% end %>
 
-<p>
-    <strong>Category:</strong>
-    <%= @article.category.name %>
-</p>
+                            </p>
+                            <%= link_to "read more", article_path(article), class: "box_btn" %>
+                            <% if current_user == article.author %>
+                            <%= link_to 'Delete', article, method: :delete, data: { confirm: 'Are you sure?' }, class: "box_btn" %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+                <%end%>
+            </article>
+        </section>
+    </div>
+</div>
+<%# <i class="fas fa-thumbs-up"></i> %>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<%# <i class="fas fa-thumbs-down"></i> %>

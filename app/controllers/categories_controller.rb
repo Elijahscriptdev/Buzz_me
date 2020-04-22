@@ -1,29 +1,31 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: %i[show edit update destroy]
 
   # GET /categories
   # GET /categories.json
   def index
+    # Article.order(published_at: :desc).includes(:authors).limit(5)
     @categories = Category.all
+    @categories_by_priority = Category.order(priority: :asc).includes(:articles)
   end
 
   # GET /categories/1
   # GET /categories/1.json
-  def show
-  end
+  def show; end
 
   # GET /categories/new
   def new
+    # @categories = Category.all
     @category = Category.new
   end
 
   # GET /categories/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /categories
   # POST /categories.json
   def create
+    # @categories = Category.all
     @category = Category.new(category_params)
 
     respond_to do |format|
@@ -62,13 +64,14 @@ class CategoriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category
-      @category = Category.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def category_params
-      params.require(:category).permit(:name, :priority)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_category
+    @category = Category.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def category_params
+    params.require(:category).permit(:name, :priority)
+  end
 end
