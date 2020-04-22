@@ -10,12 +10,7 @@ class Article < ApplicationRecord
   validates :category_id, presence: true
 
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
-
-  # scope :first_article, -> { order(created_at: :desc).first(1) }
   scope :most_recent, -> { order(created_at: :desc).first(1) }
-  # scope :recent, -> { order(created_at: :desc) }
-  # scope :featured_recent, -> { order(created_at: :desc).first(1) }
-  # scope :featured, -> { order(votes_count: :desc).first }
   scope :most_popular, -> { order(votes_count: :desc).first(1) }
 
   def upvote

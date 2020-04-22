@@ -37,7 +37,14 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+    # The RSpec testing framework
   gem 'rspec-rails'
+ 
+  # Capybara, the library that allows us to interact with the browser using Ruby
+  # gem 'capybara'
+ 
+  # This gem helps Capybara interact with the web browser.
+  gem 'webdrivers'
   gem 'sqlite3', '~> 1.4'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -58,6 +65,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '4.3.0'
   # Easy installation and use of web drivers to run system tests with browsers
