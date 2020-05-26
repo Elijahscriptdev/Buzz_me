@@ -22,6 +22,12 @@ This is a website with articles about books, wedding business, fishing equipment
 ## Deployment to heroku
 [Live link](https://buzzlife.herokuapp.com/)
 
+![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590520670/BuzzLife_fdtxiy.png)
+
+![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590520670/BuzzLife-2_banun3.png)
+
+![](https://res.cloudinary.com/elijjaaahhhh/image/upload/v1590523866/FireShot_Capture_101_-_BuzzLife_-_buzzlife.herokuapp.com_mwuqko.png)
+
 ## Prerequisites
 
 - Ruby: 2.7.0
