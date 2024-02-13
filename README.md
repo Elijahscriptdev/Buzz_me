@@ -17,7 +17,7 @@ This is a website with articles about books, wedding business, fishing equipment
 - Cloudinary
 
 ## Live Demo(video link)
-[Live link](https://www.loom.com/share/9ba0037865ce40e6b6a890a34d4e632a)
+[Live link](https://www.loom.com/share/9ba0037865ce40e6b6a890a34d4e632a?sid=42f1ce1f-007f-48ed-98c7-4c1e6a4f7f36)
 
 ## Deployment to heroku
 [Live link](https://buzzlife.herokuapp.com/)
